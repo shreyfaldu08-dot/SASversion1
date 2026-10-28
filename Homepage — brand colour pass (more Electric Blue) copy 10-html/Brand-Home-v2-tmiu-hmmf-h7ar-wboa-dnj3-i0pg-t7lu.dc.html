@@ -1,0 +1,483 @@
+<!doctype html>
+<meta charset="utf-8"><style data-dc-design-system-vars>@layer{:root{--surface:#f4f8fc;--surface-raised:#ffffff;--surface-sunk:#e4eef8;--glacier:#d3e7fa;--line:#c9dbee;--line-strong:#5f84b0;--ink:#0a1b33;--ink-muted:#45607f;--brand:#1452b8;--brand-strong:#0c3a86;--on-brand:#ffffff;--abyss:#071a33;--abyss-raised:#0e2a4d;--on-abyss:#eaf4fd;--on-abyss-muted:#9fb9d5;--sky:#6cb8f0;--on-sky:#04101f;--signal:#a14a06;--signal-soft:#fdecd8;--link:#1452b8;--edge:inset 0 1px 0 #ffffff, 0 0 0 1px #c9dbee;--shadow-panel:inset 0 1px 0 #ffffff, 0 0 0 1px #c9dbee, 0 18px 40px -18px #0a1b3340;--shadow-abyss:inset 0 1px 0 #ffffff1a, 0 0 0 1px #1c3a60;--focus-ring:0 0 0 2px #f4f8fc, 0 0 0 4px #1452b8;--focus-ring-abyss:0 0 0 2px #071a33, 0 0 0 4px #6cb8f0;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-6:24px;--space-8:32px;--space-12:48px;--space-16:64px;--space-24:96px;--space-32:128px;--radius-xs:2px;--radius-sm:4px;--radius-md:8px;--radius-lg:16px;--font-display:"Archivo", "Helvetica Neue", Arial, sans-serif;--font-sans:"Archivo", "Helvetica Neue", Arial, sans-serif;--font-mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;--text-display-xl:700 76px/76px var(--font-display);--text-display:700 52px/56px var(--font-display);--text-heading-1:650 40px/46px var(--font-display);--text-heading-2:650 26px/32px var(--font-display);--text-heading-3:600 19px/26px var(--font-display);--text-lede:400 20px/31px var(--font-sans);--text-body:400 16px/26px var(--font-sans);--text-body-sm:400 14px/22px var(--font-sans);--text-label:600 14px/20px var(--font-sans);--text-eyebrow:500 12px/16px var(--font-mono);--text-spec:400 13px/20px var(--font-mono);--text-numeral:500 56px/56px var(--font-mono);}}</style>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SAS Homepage — brand colour pass</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&amp;display=swap">
+<style>
+body{margin:0;background:#e8eaf0}
+*{box-sizing:border-box}
+h1,h2,h3{font-family:'Myriad Pro','Source Sans 3','Helvetica Neue',Arial,sans-serif}
+a{color:#102a43}a:hover{color:#697780}
+.dark a{color:#ffffff}.dark a:hover{color:#697780}
+a:focus-visible,button:focus-visible{outline:none;box-shadow:0 0 0 2px #e8eaf0,0 0 0 4px #697780}
+.dark a:focus-visible,.dark button:focus-visible{box-shadow:0 0 0 2px #102a43,0 0 0 4px #697780}
+.wrap{max-width:calc(1280px + 2 * clamp(20px, 5vw, 80px));margin:0 auto;padding-left:clamp(20px, 5vw, 80px);padding-right:clamp(20px, 5vw, 80px)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase}
+.navl{color:#ffffff;text-decoration:none;font-size:15px;font-weight:500;opacity:.9}.navl:hover{opacity:1;color:#ffffff}
+.tlink{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px;text-decoration-color:#697780}
+.arrow svg{transition:transform 180ms ease}.arrow:hover svg{transform:translateX(4px)}
+.card{transition:transform 220ms ease,box-shadow 220ms ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 0 0 1px #697780,0 8px 18px -14px #102a431f}
+.card img,.tile img{transition:transform 500ms ease}.card:hover img,.tile:hover img{transform:scale(1.05)}
+.step{transition:transform 220ms ease,box-shadow 220ms ease}
+.step:hover{transform:translateY(-4px);box-shadow:0 0 0 1px #697780,0 8px 18px -14px #102a431f}
+.faq{transition:background 160ms ease}
+@keyframes up{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+.reel{animation:up 36s linear infinite}.reel:hover{animation-play-state:paused}
+@media (prefers-reduced-motion: reduce){.reel{animation:none}}
+@keyframes side{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (max-width:980px){
+ .herorow{flex-direction:column!important;align-items:stretch!important;gap:36px!important}
+ .reelbox{flex:none!important;width:100%!important;height:150px!important;border-radius:22px!important;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)!important;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)!important}
+ .reel{flex-direction:row!important;width:max-content!important;animation:side 32s linear infinite!important}
+ .reel img{flex:none!important;width:220px!important;height:150px!important}
+}
+@media (max-width:540px){.reelbox{height:120px!important}.reel img{width:170px!important;height:120px!important}}
+@media (prefers-reduced-motion: reduce){.reel{animation:none!important}}
+
+/* ---------- responsive ---------- */
+h1,h2,h3{overflow-wrap:break-word}
+img{max-width:100%}
+@media (max-width:1024px){.navlinks{gap:20px!important}}
+@media (max-width:900px){
+ .navlinks,.navcta{display:none!important}
+ .menubtn{display:inline-flex!important}
+ .stage{height:auto!important;display:flex;flex-direction:column}
+ .stageimg{position:relative!important;height:340px!important;inset:auto!important}
+ .stagefade{display:none!important}
+ .stagecap{position:static!important;max-width:none!important;padding:24px 22px 8px}
+ .facts{position:static!important;width:auto!important;margin:8px 16px 16px!important;background:#102a43!important}
+ .procimg{min-height:420px!important}
+}
+@media (max-width:760px){
+ .stat{box-shadow:none!important;padding:20px 0 0!important;border-top:1px solid #dfe3e8}
+ .stat:first-child{border-top:0;padding-top:0!important}
+ .career{grid-template-columns:1fr!important;gap:20px!important}
+ .careerline{display:none!important}
+}
+@media (max-width:540px){
+ .diffs{grid-template-columns:1fr!important}
+ .stageimg{height:260px!important}
+ .procimg{min-height:360px!important}
+}
+@media (max-width:900px){.tline{grid-template-columns:repeat(2,minmax(0,1fr))!important}.tlinebar{display:none!important}.fd4{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:540px){.tline,.fd4{grid-template-columns:1fr!important}}
+@media (max-width:1100px){.fstrip{grid-template-columns:repeat(2,minmax(0,1fr))!important;padding:10px!important}.fstrip > div{border-left:0!important}.fstrip > a{grid-column:1 / -1;justify-self:start}}
+@media (max-width:760px){.fpanels{flex-direction:column!important;height:auto!important}.fpanel{flex:none!important;height:var(--fh)!important;transition:height 400ms ease!important}.fvlabel{writing-mode:horizontal-tb!important;transform:none!important;left:84px!important;bottom:auto!important;top:30px!important}}
+@media (max-width:540px){.fstrip{grid-template-columns:1fr!important}}
+@media (max-width:900px){.ftiles{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:540px){.ftiles{grid-template-columns:1fr!important}}
+@media (max-width:760px){.cbar{flex-direction:column!important;gap:16px!important}.cseg{flex:none!important}.cruler{display:none!important}.cseg > span:first-child{border-radius:999px!important}}
+@keyframes aesweep{0%{left:-30%}60%,100%{left:110%}}
+.aesheen{animation:aesweep 6s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.aesheen{animation:none;display:none}}
+@media (max-width:760px){.aedge{flex-direction:column!important}.aeseg{flex:none!important;min-height:52px;border-left:0!important;box-shadow:none!important;border-top:1px solid #102a4314}.aeseg:nth-child(2){border-top:0}.aetxt{white-space:normal!important}}
+@media (max-width:900px){.fblock{grid-template-columns:1fr!important}}
+@media (max-width:560px){.tblock{grid-template-columns:1fr 1fr!important}.tblock > div:first-child{grid-row:auto!important;grid-column:1 / -1}.tblock > div:nth-child(2){grid-column:1 / -1!important}}
+@media (max-width:760px){.procline{display:none!important}}
+
+section[id]{scroll-margin-top:24px}
+.srail{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:6px;padding:10px;border-radius:999px;background:#ffffffe6;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 0 0 1px #dfe3e8}
+.sdot{position:relative;display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;border-radius:18px;background:transparent;cursor:pointer;font:inherit}
+.sdot .slab{position:absolute;right:46px;white-space:nowrap;padding:6px 12px;border-radius:999px;background:#102a43;color:#ffffff;font-size:13px;font-weight:700;opacity:0;transform:translateX(6px);transition:opacity 160ms ease,transform 160ms ease;pointer-events:none}
+.sdot:hover .slab,.sdot:focus-visible .slab{opacity:1;transform:none}
+.snext{position:fixed;right:24px;bottom:24px;z-index:50;display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 8px 0 20px;border:0;border-radius:999px;background:#102a43;color:#ffffff;font:inherit;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 8px 20px -12px #102a4380}
+@media (max-width:1100px){.srail{display:none}}
+
+/* ================= ONE HOVER SYSTEM — every button and every arrow behaves the same =================
+   1. Pill buttons (.btnfx): lift 2px + soft shadow.             2. Any arrow (.ar-r / .ar-d): slides 4px in its direction.
+   3. Arrow circles (.arc): grow 8%.                              4. Plain text link (no arrow): underline draws in.
+   Photos inside cards/tiles zoom slowly; nothing else moves.   */
+:root{--ease:cubic-bezier(.22,.61,.36,1);--t:280ms}
+/* neutralise older one-off hover rules */
+.arrow:hover svg{transform:none}
+.card:hover,.step:hover,.lift:hover{transform:none!important;box-shadow:none!important}
+.mrow:hover,.faq:hover{background:inherit}
+a:hover{color:#102a43}.dark a:hover{color:#ffffff}
+/* 1 — buttons */
+.btnfx{transition:transform var(--t) var(--ease),box-shadow var(--t) var(--ease)!important}
+.btnfx:hover{transform:translateY(-2px);box-shadow:0 12px 24px -16px #102a4399}
+.btnfx:active{transform:translateY(0)}
+/* 2 — arrows */
+.ar-r,.ar-d{transition:transform var(--t) var(--ease)!important}
+a:hover .ar-r,button:hover .ar-r,.card:hover .ar-r,.tile:hover .ar-r{transform:translateX(4px)!important}
+a:hover .ar-d,button:hover .ar-d,.card:hover .ar-d,.tile:hover .ar-d{transform:translate(3px,-3px)!important}
+/* 3 — arrow circles */
+.arc{transition:transform var(--t) var(--ease)!important}
+a:hover .arc,button:hover .arc,.card:hover .arc{transform:scale(1.08)}
+/* 4 — plain text links + menu */
+.tlink{text-decoration:none!important;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-size:0% 2px;background-position:0 100%;transition:background-size var(--t) var(--ease)}
+.tlink:hover{background-size:100% 2px}
+.navl{opacity:.9;background-image:linear-gradient(#697780,#697780);background-repeat:no-repeat;background-size:0% 2px;background-position:0 100%;padding-bottom:4px;transition:background-size var(--t) var(--ease),opacity var(--t) var(--ease)}
+.navl:hover{opacity:1;background-size:100% 2px}
+footer a:not([aria-label]){transition:color var(--t) var(--ease)}footer a:not([aria-label]):hover{color:#ffffff}
+footer a[aria-label]{transition:transform var(--t) var(--ease)}footer a[aria-label]:hover{transform:translateY(-2px)}
+/* photos */
+.card img,.tile img{transition:transform 1100ms var(--ease)!important}
+.card:hover img,.tile:hover img{transform:scale(1.04)!important}
+/* non-hover motion kept: CTA pulse, hero entrance, scroll reveal */
+@keyframes ctaring{0%{box-shadow:0 0 0 0 #69778073}70%{box-shadow:0 0 0 14px #69778000}100%{box-shadow:0 0 0 0 #69778000}}
+.ctafx{animation:ctaring 2.8s var(--ease) 1.2s infinite}
+@keyframes heroin{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+#top .herorow > div > *{animation:heroin 800ms var(--ease) both}
+#top .herorow > div > *:nth-child(2){animation-delay:90ms}#top .herorow > div > *:nth-child(3){animation-delay:180ms}#top .herorow > div > *:nth-child(4){animation-delay:270ms}#top .herorow > div > *:nth-child(5){animation-delay:360ms}
+.rv{opacity:0;transform:translateY(22px);transition:opacity 700ms var(--ease),transform 700ms var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* BRAND (SAS LOGO 3): Navy #102a43 · Slate #697780 · White · Black · Myriad (Variable Concept) */
+.sasmark{background:url(data:image/png;base64,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) center/contain no-repeat}
+h1,h2,h3{font-family:'Myriad Pro','Myriad Variable Concept','Source Sans 3','Helvetica Neue',Arial,sans-serif}
+</style>
+</helmet>
+
+<div style="font-family: 'Myriad Pro', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif; color: #102a43; background: #e8eaf0; width: 100%">
+
+<!-- ================= 1. HERO (dark) ================= -->
+<section id="top" class="dark" aria-labelledby="h1" style="position: relative; min-height: clamp(700px, 60vw, 900px); background: #102a43; color: #ffffff; overflow: hidden; display: flex; flex-direction: column">
+  <img src="./assets/da08b2474e1152c78e91873ee4655eaf.jpg" alt="Diver behind an underwater structural acrylic viewing window" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, #102a43f7 0%, #102a43cc 42%, #102a4366 75%, #102a4399 100%)"></div>
+
+  <header style="position: relative; z-index: 3">
+    <nav aria-label="Primary" class="wrap" style="min-height: 92px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+      <a href="#top" aria-label="Structural Acrylic Systems, home" style="display: inline-flex; flex-direction: column; align-items: center; gap: 7px; text-decoration: none; color: #ffffff"><span class="sasmark" aria-hidden="true" style="display: block; width: 112px; height: 32px"></span><span style="display: flex; flex-direction: column; align-items: center; gap: 2px; line-height: 1; font-family: 'Myriad Pro', 'Myriad Variable Concept', 'Source Sans 3', Arial, sans-serif"><span style="font-size: 15px; font-weight: 700; letter-spacing: 0.1em; margin-right: -0.1em">STRUCTURAL</span><span style="font-size: 8.5px; font-weight: 300; letter-spacing: 0.27em; margin-right: -0.27em">ACRYLIC SYSTEMS</span></span></a>
+      <div class="navlinks" style="display: flex; flex-wrap: wrap; gap: 34px"><a class="navl" href="#founder">About</a><a class="navl" href="#capabilities">Capabilities</a><a class="navl" href="#featured">Projects</a><a class="navl" href="#industries">Industries</a><a class="navl" href="/faqs/">FAQs</a></div>
+      <a href="#contact" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 22px; background: #ffffff; color: #102a43; border-radius: 999px; font-size: 15px; font-weight: 700; text-decoration: none" class="navcta btnfx">Contact Us</a>
+      <button class="menubtn" onClick="{{toggleMenu}}" aria-expanded="{{menuOpen}}" aria-controls="mobilemenu" aria-label="Open menu" style="display: none; align-items: center; justify-content: center; width: 48px; height: 48px; border: 0; border-radius: 24px; background: #697780; color: #ffffff; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 8h16M4 16h16"></path></svg></button>
+      <sc-if value="{{showMenu}}" hint-placeholder-val="{{ false }}">
+        <div id="mobilemenu" style="flex: 1 1 100%; display: flex; flex-direction: column; gap: 4px; padding: 12px; background: #102a43f2; border-radius: 24px; box-shadow: inset 0 0 0 1px #ffffff26"><a class="navl" href="#founder" style="padding: 12px 14px">About</a><a class="navl" href="#capabilities" style="padding: 12px 14px">Capabilities</a><a class="navl" href="#featured" style="padding: 12px 14px">Projects</a><a class="navl" href="#industries" style="padding: 12px 14px">Industries</a><a class="navl" href="/faqs/" style="padding: 12px 14px">FAQs</a><a class="navl" href="#contact" style="padding: 12px 14px">Contact Us</a></div>
+      </sc-if>
+    </nav>
+  </header>
+
+  <div class="wrap herorow" style="position: relative; z-index: 2; flex: 1; width: 100%; display: flex; align-items: center; gap: 48px; padding-top: 32px; padding-bottom: 80px">
+    <div style="flex: 1 1 min(560px, 100%); min-width: 0; display: flex; flex-direction: column; gap: 28px">
+      
+      <h1 id="h1" style="margin: 0; font-size: clamp(40px, 6.8vw, 104px); line-height: 0.96; letter-spacing: -0.011em; color: #ffffff">Engineered for the <span>Extraordinary</span></h1>
+      <p style="margin: 0; max-width: 560px; font-size: 19px; line-height: 31px; color: #e3e7ec">Structural acrylic for luxury pools, aquariums, zoos, and architectural builds. Full scope, US-fabricated, founder-led.</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; padding-top: 4px">
+        <a class="arrow btnfx ctafx" href="#contact" style="display: inline-flex; align-items: center; gap: 12px; min-height: 58px; padding: 0 8px 0 28px; background: #ffffff; color: #102a43; border-radius: 999px; font-size: 16px; font-weight: 800; text-decoration: none">Discuss Your Project<span class="arc" style="display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 21px; color: #e8eaf0; background-color: #697780"><svg class="ar-r" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a>
+        <a class="tlink" href="#featured" style="color: #ffffff; text-decoration-line: none">View a Recent Installation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. STATS STRIP (light) — rises out of the hero, flows into the founder block ================= -->
+<section aria-label="SAS at a glance" style="position: relative; z-index: 2; margin-top: -40px; border-radius: 40px 40px 0 0; background-color: var(--surface-raised, #ffffff)">
+  <div class="wrap">
+    <dl style="margin: 0; padding: clamp(40px, 4vw, 56px) 0 clamp(36px, 4vw, 52px); display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px 0; border-bottom: 1px solid #dfe3e8">
+      <sc-for list="{{stats}}" as="s" hint-placeholder-count="4">
+        <div class="stat" style="padding: 0 clamp(16px, 2.4vw, 32px); display: flex; align-items: flex-start; gap: 16px; box-shadow: {{s.divider}}">
+          <span style="display: flex; flex-direction: column; gap: 6px"><dt style="font-family: 'Myriad Pro', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -0.013em">{{s.h}}</dt><dd style="margin: 0; font-size: 14px; line-height: 22px; color: #5a6270">{{s.sub}}</dd></span>
+        </div>
+      </sc-for>
+    </dl>
+  </div>
+</section>
+
+<!-- ================= 3. ABOUT — typographic statement with inline image ================= -->
+<section id="founder" aria-labelledby="s-founder" style="padding: clamp(32px, 4vw, 56px) 0 clamp(80px, 9vw, 120px); background-color: var(--surface-raised, #ffffff)">
+  <div class="wrap" style="display: flex; flex-direction: column; gap: 48px">
+    
+    <h2 id="s-founder" style="margin: 0; font-family: 'Myriad Pro', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(40px, 4.8vw, 68px); line-height: 1.12; font-weight: 700; letter-spacing: -0.020em; color: #102a43">We engineer <span aria-hidden="true" style="display: inline-block; vertical-align: middle; width: 1.9em; height: 0.92em; border-radius: 999px; overflow: hidden; background: #102a43"><img src="./assets/f19b74bbd3ac9c6728ea8ae42cda9cbc.jpg" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover"></span> experiences people walk through, swim beside and <span style="color: #697780">see the world through.</span></h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px; padding-top: 32px; border-top: 1px solid #c5ccd5">
+      <p style="margin: 0; flex: 1 1 460px; max-width: 620px; font-size: 18px; line-height: 30px; color: #3c4553">Structural Acrylic Systems provides end-to-end engineering, fabrication and installation of structural acrylic for luxury pools, commercial projects, public aquariums and one-of-a-kind architectural spaces. Founder-led by Bart Baker, 30+ years in structural acrylic.</p>
+      <a class="arrow linkfx" href="/about/" style="display: inline-flex; align-items: center; gap: 12px; min-height: 48px; font-size: 16px; font-weight: 700; color: #102a43; text-decoration: none">About SAS<span class="arc" style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 24px; color: #ffffff; background-color: #697780"><svg class="ar-r" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. FEATURED PROJECT (dark) — expanding build-stage panels ================= -->
+<section id="featured" class="dark" aria-labelledby="s-feat" style="color: #ffffff; padding: clamp(80px, 9vw, 120px) 0; background-color: #102a43">
+  <div class="wrap" style="display: flex; flex-direction: column; gap: 40px">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+      
+      <h2 id="s-feat" style="margin: 0; font-size: clamp(40px, 4.8vw, 68px); line-height: 1.02; font-weight: 700; letter-spacing: -0.020em; color: var(--surface-raised, #ffffff)">Luxury Residential <span>Pool</span></h2>
+      <p style="margin: 0; max-width: 620px; font-size: 17px; line-height: 28px; color: #c5ccd5">One build, four stages. Hover or tap a stage to open it.</p>
+    </div>
+
+    <!-- expanding panels -->
+    <ol class="fpanels" role="tablist" aria-label="Build stages" style="margin: 0; padding: 0; list-style: none; display: flex; gap: 12px; height: clamp(460px, 42vw, 600px)">
+      <sc-for list="{{fstages}}" as="b" hint-placeholder-count="4">
+        <li class="fpanel" style="--fh: {{b.fh}}; flex: {{b.grow}} 1 0; min-width: 0; transition: flex 500ms ease">
+          <button role="tab" aria-selected="{{b.on}}" onClick="{{b.pick}}" onMouseEnter="{{b.pick}}" onFocus="{{b.pick}}" style="position: relative; display: block; width: 100%; height: 100%; padding: 0; border: 0; border-radius: 28px; overflow: hidden; background: #1c3a57; color: #ffffff; font-family: inherit; text-align: left; cursor: pointer">
+            <img src="{{b.img}}" alt="{{b.alt}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+            <span aria-hidden="true" style="position: absolute; inset: 0; background: {{b.shade}}; transition: background 400ms ease"></span>
+            <span style="position: absolute; left: 20px; top: 20px; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 44px; padding: 0 12px; border-radius: 22px; background: {{b.numBg}}; color: {{b.numCol}}; font-size: 13px; font-weight: 800; letter-spacing: 0.08em">0{{b.n}}</span>
+            <span class="fcap" style="position: absolute; left: 28px; right: 28px; bottom: 28px; display: flex; flex-direction: column; gap: 10px; max-width: 520px; opacity: {{b.capOp}}; transition: opacity 400ms ease">
+              <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; color: #697780">STAGE 0{{b.n}} OF 4</span>
+              <span style="font-family: 'Myriad Pro', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(28px, 2.8vw, 40px); line-height: 1.05; font-weight: 700; letter-spacing: -0.013em">{{b.title}}</span>
+              <span style="font-size: 16px; line-height: 25px; color: #dfe3e8">{{b.desc}}</span>
+            </span>
+          </button>
+        </li>
+      </sc-for>
+    </ol>
+
+    <!-- project facts: four spec columns + centred CTA -->
+    
+    <div style="display: flex; justify-content: center; padding-top: 8px">
+      <a class="arrow btnfx" href="#contact" style="display: inline-flex; align-items: center; gap: 12px; min-height: 56px; padding: 0 8px 0 26px; color: #102a43; border-radius: 999px; font-size: 15px; font-weight: 700; text-decoration: none; background-color: #e8eaf0"><span>Discuss a Similar Project</span><span class="arc" style="display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 21px; color: #697780; background-color: var(--surface-raised, #ffffff)"><svg class="ar-r" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. HOW IT WORKS (light) — photo mosaic of the four stages ================= -->
+<section id="process" aria-labelledby="s-proc" style="padding: clamp(80px, 9vw, 120px) 0; background-color: var(--surface-raised, #ffffff)">
+  <div class="wrap" style="display: flex; flex-direction: column; gap: 48px">
+    <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
+      
+      <h2 id="s-proc" style="margin: 0; font-size: clamp(40px, 4.8vw, 68px); line-height: 1.02; font-weight: 700; letter-spacing: -0.020em; color: #102a43">A Process Built on <span style="color: #697780">30 Years of Acrylic</span></h2>
+    </div>
+
+    <!-- Mosaic -->
+    <div style="display: flex; flex-wrap: wrap; gap: 16px">
+      <!-- Big image with the one message -->
+      <div class="card" style="flex: 7 1 560px; min-width: 0; position: relative; height: clamp(520px, 50vw, 680px); border-radius: 28px; overflow: hidden; background: #102a43">
+        <img src="./assets/5d7bcc801adac727a0776ddae8990477.jpg" alt="Concrete channel prepared to drawings for an acrylic panel" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%">
+        <span style="position: absolute; left: 20px; top: 20px; padding: 8px 14px; background: #ffffffeb; border-radius: 999px; font-size: 13px; font-weight: 700; color: #102a43">Engineering &amp; Planning</span>
+        
+      <span class="arc" style="position: absolute; display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 26px; background: #ffffff; color: #697780; right: 16px; bottom: 16px"><svg class="ar-d" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></div>
+
+      <!-- Right column of images -->
+      <div style="flex: 5 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+        <a class="card" href="#markets" style="position: relative; display: block; flex: 1 1 300px; min-height: 260px; border-radius: 28px; overflow: hidden; background: #102a43; color: #0a1b33">
+          <img src="./assets/a8e8f3676f885fc0dc96e0623eeb495a.jpg" alt="Fabricated acrylic panel lifted by crane" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+          <span style="position: absolute; left: 20px; top: 20px; padding: 8px 14px; background: #ffffffeb; border-radius: 999px; font-size: 13px; font-weight: 700; color: #102a43">Fabrication</span>
+          <span class="arc" style="position: absolute; right: 16px; bottom: 16px; display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 26px; background: #ffffff; color: #697780"><svg class="ar-d" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></span>
+        </a>
+        <div style="flex: 1 1 300px; min-height: 260px; display: flex; gap: 16px">
+          <a class="card" href="#markets" style="position: relative; display: block; flex: 1 1 0; min-width: 0; border-radius: 28px; overflow: hidden; background: #102a43; color: #0a1b33">
+            <img src="./assets/b965119dd82acd3d263984228dcb23d7.jpg" alt="SAS crew setting an acrylic panel beside a pool" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+            <span style="position: absolute; left: 16px; top: 16px; padding: 8px 14px; background: #ffffffeb; border-radius: 999px; font-size: 13px; font-weight: 700; color: #102a43">Delivery &amp; Installation</span>
+          <span class="arc" style="position: absolute; display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 26px; background: #ffffff; color: #697780; right: 16px; bottom: 16px"><svg class="ar-d" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+          <a class="card" href="#markets" style="position: relative; display: block; flex: 1 1 0; min-width: 0; border-radius: 28px; overflow: hidden; background: #102a43; color: #0a1b33">
+            <img src="./assets/0e79903d69664deb830d59b448139ecb.jpg" alt="Finished, sealed acrylic panel beside the pool" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+            <span style="position: absolute; left: 16px; top: 16px; padding: 8px 14px; background: #ffffffeb; border-radius: 999px; font-size: 13px; font-weight: 700; color: #102a43">Sealing &amp; Aftercare</span>
+          <span class="arc" style="position: absolute; display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 26px; background: #ffffff; color: #697780; right: 16px; bottom: 16px"><svg class="ar-d" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= 6. CAPABILITIES — WHAT WE BUILD (light) ================= -->
+
+
+<!-- ================= 7. INDUSTRIES (light) — same container, header and card style as How it works ================= -->
+<section id="capabilities" aria-labelledby="s-cap" style="padding: clamp(80px, 9vw, 128px) 0; background-color: #102a43">
+  <div class="wrap" style="display: flex; flex-direction: column; gap: 48px">
+    <div style="display: flex; flex-direction: column; gap: 18px; max-width: 720px">
+      
+      <h2 id="s-cap" style="margin: 0; font-size: clamp(40px, 4.8vw, 68px); line-height: 1.02; font-weight: 700; letter-spacing: -0.020em; color: var(--surface-raised, #ffffff)">What We Build</h2>
+      <p style="margin: 0; font-size: 18px; line-height: 29px; color: #c5ccd5">From engineering input to post-install inspection. SAS handles the complete scope.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 20px">
+      <sc-for list="{{caps}}" as="c" hint-placeholder-count="6">
+        <a class="card" href="/capabilities/" style="display: flex; flex-direction: column; gap: 20px; padding: 12px 12px 26px; background: #ffffff; border-radius: 32px; box-shadow: 0 0 0 1px #e6e9ed; color: #102a43; text-decoration: none">
+          <div style="height: 220px; border-radius: 22px; overflow: hidden; background: #102a43"><img src="{{c.img}}" alt="{{c.alt}}" style="display: block; width: 100%; height: 100%; object-fit: cover"></div>
+          <div style="padding: 0 14px; display: flex; flex-direction: column; gap: 10px">
+            <h3 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.009em">{{c.title}}</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 24px; color: #5a6270">{{c.desc}}</p>
+            <span class="arrow" style="display: inline-flex; align-items: center; gap: 8px; padding-top: 6px; font-size: 14px; font-weight: 700">Learn More<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section><section id="industries" aria-labelledby="s-ind" style="color: #102a43; padding-top: clamp(80px, 9vw, 120px); padding-bottom: clamp(80px, 9vw, 120px); background-color: var(--surface-raised, #ffffff)">
+  <div class="wrap" style="display: flex; flex-direction: column; gap: 48px">
+    <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
+      <h2 id="s-ind" style="margin: 0; font-size: clamp(40px, 4.8vw, 68px); line-height: 1.02; font-weight: 700; letter-spacing: -0.020em; color: #102a43">Industries <span style="color: #697780">We Serve</span></h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+    <sc-for list="{{industries}}" as="t" hint-placeholder-count="4">
+      <a class="tile" href="{{t.href}}" style="position: relative; display: block; height: clamp(380px, 30vw, 460px); border-radius: 28px; overflow: hidden; background: #102a43; color: #ffffff; text-decoration: none">
+        <img src="{{t.img}}" alt="{{t.alt}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+        <span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(0deg, #102a43f2 0%, #102a438c 45%, #102a4326 100%)"></span>
+        <span style="position: absolute; left: 24px; right: 24px; bottom: 24px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'Myriad Pro', 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -0.009em">{{t.title}}</span>
+          <span style="font-size: 15px; line-height: 23px; color: #dfe3e8">{{t.sub}}</span>
+          <span class="arrow" style="display: inline-flex; align-items: center; gap: 8px; padding-top: 8px; font-size: 14px; font-weight: 700; color: #c5ccd5">Explore<svg class="ar-r" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></span>
+        </span>
+      </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 8. FINAL CTA (dark, full-width, centred) ================= -->
+<section id="contact" class="dark" aria-labelledby="s-cta" style="position: relative; background: #102a43; color: #ffffff; overflow: hidden; border-radius: 40px 40px 0 0">
+  <img src="./assets/b965119dd82acd3d263984228dcb23d7.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: #102a43d1"></div>
+  <div class="wrap" style="position: relative; padding-top: clamp(96px, 11vw, 160px); padding-bottom: clamp(96px, 11vw, 160px); display: flex; flex-direction: column; align-items: center; gap: 26px; text-align: center">
+    
+    <h2 id="s-cta" style="margin: 0; max-width: 820px; font-size: clamp(40px, 5.4vw, 80px); line-height: 1; font-weight: 700; letter-spacing: -0.020em; color: #ffffff">Ready to Discuss <span>Your Project?</span></h2>
+    <p style="margin: 0; max-width: 640px; font-size: 18px; line-height: 30px; color: #dfe3e8">Talk directly with Bart, from a single pool panel to a full aquarium build.</p>
+    <a class="arrow btnfx ctafx" href="#contact" style="display: inline-flex; align-items: center; gap: 12px; min-height: 58px; padding: 0 30px; background: #ffffff; color: #102a43; border-radius: 999px; font-size: 16px; font-weight: 700; text-decoration: none"><span>Discuss Your Project</span><svg class="ar-r" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></a>
+    <span style="font-size: 16px; color: #c5ccd5">Or call Bart directly: <a href="#contact" style="font-weight: 700">[(XXX) XXX-XXXX]</a></span>
+  </div>
+</section>
+
+<!-- ================= 10. FOOTER (dark) ================= -->
+<footer class="dark" style="background: #102a43; color: #c5ccd5; border-top: 4px solid #697780">
+  <div class="wrap" style="padding-top: 72px; padding-bottom: 32px; display: flex; flex-direction: column; gap: 48px">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 40px">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <a href="#top" aria-label="Structural Acrylic Systems, home" style="display: inline-flex; flex-direction: column; align-items: center; gap: 9px; text-decoration: none; color: #ffffff"><span class="sasmark" aria-hidden="true" style="display: block; width: 150px; height: 43px"></span><span style="display: flex; flex-direction: column; align-items: center; gap: 2px; line-height: 1; font-family: 'Myriad Pro', 'Myriad Variable Concept', 'Source Sans 3', Arial, sans-serif"><span style="font-size: 20px; font-weight: 700; letter-spacing: 0.1em; margin-right: -0.1em">STRUCTURAL</span><span style="font-size: 11.5px; font-weight: 300; letter-spacing: 0.27em; margin-right: -0.27em">ACRYLIC SYSTEMS</span></span></a>
+        <p style="margin: 0; font-size: 14px; line-height: 22px">Structural acrylic for luxury pools, aquariums, zoos and architectural builds. US-fabricated in Houston, Texas.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; font-size: 14px"><span style="font-size: 15px; font-weight: 700; color: #ffffff">Company</span><a href="#founder">About SAS</a><a href="#founder">Bart Baker</a><a href="#process">Our Process</a><a href="/faqs/">FAQs</a></div>
+      <div style="display: flex; flex-direction: column; gap: 12px; font-size: 14px"><span style="font-size: 15px; font-weight: 700; color: #ffffff">Capabilities</span><a href="/capabilities/">Fabrication</a><a href="/capabilities/">Installation</a><a href="/capabilities/">Inspection</a><a href="/capabilities/">Refurbishment</a><a href="/capabilities/">Waterproofing</a></div>
+      <div style="display: flex; flex-direction: column; gap: 12px; font-size: 14px"><span style="font-size: 15px; font-weight: 700; color: #ffffff">Industries</span><a href="/industries/#luxury-pools">Luxury Pools</a><a href="/industries/#public-aquariums">Public Aquariums</a><a href="/industries/#zoos">Zoos &amp; Wildlife Parks</a><a href="/industries/#architectural">Architectural</a></div>
+      <div style="display: flex; flex-direction: column; gap: 12px; font-size: 14px"><span style="font-size: 15px; font-weight: 700; color: #ffffff">Contact</span><span>Phone: [(XXX) XXX-XXXX]</span><span>Email: [hello@yourdomain.com]</span><span>Houston, Texas, USA</span>
+        <span style="display: flex; gap: 8px; padding-top: 4px">
+          <a href="#top" aria-label="LinkedIn" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 22px; box-shadow: inset 0 0 0 1px #ffffff33"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"></path></svg></a>
+          <a href="#top" aria-label="Instagram" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 22px; box-shadow: inset 0 0 0 1px #ffffff33"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg></a>
+          <a href="#top" aria-label="YouTube" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 22px; box-shadow: inset 0 0 0 1px #ffffff33"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"></rect><path d="M10 9l5 3-5 3z"></path></svg></a>
+        </span>
+      </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-top: 24px; border-top: 1px solid #ffffff1f; font-size: 13px"><span>© 2026 Structural Acrylic Systems, LLC. All rights reserved.</span><span style="display: flex; gap: 24px"><a href="#top">Privacy Policy</a><a href="#top">Terms</a></span></div>
+  </div>
+</footer>
+
+<!-- SECTION NAVIGATION: fixed rail (click any section) + "next section" button -->
+
+<sc-if value="{{hasNext}}" hint-placeholder-val="{{ true }}">
+  
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":8600}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { faq: 0, step: 0, fstage: 1, menu: false, sec: 0 };
+    this.SECS = [['top', 'Home'], ['founder', 'About'], ['featured', 'Featured project'], ['process', 'How it works'], ['capabilities', 'Capabilities'], ['industries', 'Industries'], ['contact', 'Contact']];
+    this.onScroll = () => { try { let cur = 0; this.SECS.forEach(([id], k) => { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.35) cur = k; }); if (cur !== this.state.sec) this.setState({ sec: cur }); } catch (e) {} };
+  }
+  componentDidMount() {
+    try { window.addEventListener('scroll', this.onScroll, { passive: true }); this.onScroll(); } catch (e) {}
+    try {
+      const els = Array.from(document.querySelectorAll('section:not(#top) h2, section:not(#top) .card, section:not(#top) .tile, section:not(#top) .wrap > p, .fpanel'));
+      if (!('IntersectionObserver' in window) || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+      els.forEach((el, k) => { el.classList.add('rv'); el.style.transitionDelay = ((k % 4) * 70) + 'ms'; });
+      this.io = new IntersectionObserver((entries) => entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); this.io.unobserve(en.target); } }), { threshold: 0.12 });
+      els.forEach((el) => this.io.observe(el));
+      setTimeout(() => els.forEach((el) => el.classList.add('in')), 4000);
+    } catch (e) {}
+  }
+  componentWillUnmount() { try { window.removeEventListener('scroll', this.onScroll); if (this.io) this.io.disconnect(); } catch (e) {} }
+  renderVals() {
+    const I = {
+      c385: './assets/5d7bcc801adac727a0776ddae8990477.jpg', c394: './assets/029debd378300319d616b51df9e58714.jpg', c400: './assets/b965119dd82acd3d263984228dcb23d7.jpg',
+      c408: './assets/0e79903d69664deb830d59b448139ecb.jpg', c411: './assets/c7b8334e2b7306163f7ddf38bb3386e1.jpg', c440: './assets/e79dc0ae2e07e80822658f762baaed0f.jpg',
+      c639: './assets/da08b2474e1152c78e91873ee4655eaf.jpg', c869: './assets/a8e8f3676f885fc0dc96e0623eeb495a.jpg', c870: './assets/978ebc356a34f1c544500fa1ce727985.jpg'
+    };
+    const steps = [
+      { title: 'Engineering & Planning', desc: 'We review your drawings and site, then complete load calculations and shop drawings before anything is fabricated.' },
+      { title: 'Fabrication', desc: 'Your acrylic is fabricated in Houston, Texas to exact specifications — cut, bonded and polished for clarity.' },
+      { title: 'Delivery & Installation', desc: 'Our own crew delivers, rigs and sets every panel, working alongside your builder and GC on site.' },
+      { title: 'Sealing & Aftercare', desc: 'Waterproofing and sealing, then inspection and refurbishment support for the life of the structure.' }
+    ].map((s, i) => {
+      const on = i === this.state.step;
+      const imgs = [I.c385, I.c869, I.c400, I.c639];
+      const alts = ['Prepared channel and drawings stage', 'Fabricated acrylic panel lifted by crane', 'SAS crew setting a panel beside a pool', 'Diver inspecting a finished acrylic window'];
+      return { ...s, n: i + 1, img: imgs[i], alt: alts[i], on: on ? 'true' : 'false',
+        bg: on ? '#102a43' : '#ffffff', fg: on ? '#ffffff' : '#102a43', ring: on ? '#102a43' : '#e6e9ed',
+        numBg: on ? '#e8eaf0' : '#e8eaf0', numFg: on ? '#697780' : '#102a43', bar: i <= this.state.step ? '#697780' : '#ffffff33',
+        cBg: on ? '#102a43' : '#ffffff', cFg: on ? '#ffffff' : '#102a43', cRing: on ? '#102a43' : '#697780', cardRing: on ? '2px' : '0px',
+        pick: () => { if (this.state.step !== i) this.setState({ step: i }); } };
+    });
+    const cur = steps[this.state.step];
+    const caps = [
+      { title: 'Fabrication', desc: 'Custom structural acrylic to exact specifications, US-made.', img: I.c869, alt: 'Structural acrylic panel being lifted into place' },
+      { title: 'Installation', desc: 'Professional installation by our own crew.', img: I.c400, alt: 'SAS crew setting an acrylic panel beside a pool' },
+      { title: 'Inspection', desc: 'Structural assessment and condition reporting.', img: I.c639, alt: 'Diver inspecting an underwater acrylic window' },
+      { title: 'Refurbishment', desc: 'Restoring clarity and structural integrity.', img: I.c408, alt: 'Acrylic panel set level beside a pool' },
+      { title: 'Waterproofing', desc: 'Long-lasting sealant for acrylic joints and frames.', img: I.c440, alt: 'Acrylic channel and spa wall prepared for sealing' },
+      { title: 'Engineering Support', desc: 'Technical input from concept through construction drawings.', img: I.c385, alt: 'Prepared concrete channel for an acrylic panel' }
+    ];
+    const solutions = [
+      { title: 'Acrylic Pool Windows', desc: 'Custom structural acrylic viewing panels for luxury residential and commercial pools.', img: I.c639, alt: 'Underwater acrylic pool window' },
+      { title: 'Acrylic Pool Walls', desc: 'Full-height transparent pool walls, engineered and installed by one team.', img: I.c400, alt: 'Acrylic pool wall installation' },
+      { title: 'Custom & Curved Panels', desc: 'Panels for curved, angled, corner and other complex configurations.', img: I.c869, alt: 'Large acrylic panel on a crane' },
+      { title: 'Spa & Channel Walls', desc: 'Acrylic spa edges and channel walls with sealed, watertight joints.', img: I.c440, alt: 'Acrylic channel and spa' },
+      { title: 'Aquarium & Habitat Windows', desc: 'Large-format viewing panels for public aquariums and zoos.', img: I.c394, alt: 'Panel channel being prepared' },
+      { title: 'Restoration & Polishing', desc: 'Bringing existing acrylic back to optical clarity, in place.', img: I.c408, alt: 'Finished acrylic panel beside a pool' }
+    ];
+    const industries = [
+      { title: 'Luxury Pools', sub: 'Viewing panels, custom installations, complete pool glazing', img: I.c400, alt: 'Luxury pool with acrylic panel', href: '/industries/#luxury-pools' },
+      { title: 'Public Aquariums', sub: 'Large-format acrylic, tunnels, deep tanks', img: I.c639, alt: 'Underwater acrylic viewing window', href: '/industries/#public-aquariums' },
+      { title: 'Zoos and Wildlife Parks', sub: 'Habitat viewing panels, barrier glazing', img: I.c440, alt: 'Acrylic habitat wall under construction', href: '/industries/#zoos' },
+      { title: 'Architectural', sub: 'Structural acrylic for commercial projects', img: I.c870, alt: 'Acrylic panel delivered by crane', href: '/industries/#architectural' }
+    ];
+    const faqs = [
+      { q: 'Why work with SAS?', a: 'You work directly with Bart Baker and a team with 30+ years in structural acrylic. Engineering, fabrication, installation and aftercare stay under one roof, so nothing is lost between hand-offs.' },
+      { q: 'Where is your acrylic fabricated?', a: 'In Houston, Texas. US fabrication means no overseas lead times and direct oversight of every panel.' },
+      { q: 'Do you provide engineering and drawings?', a: 'Yes. Load calculations and drawings are completed before fabrication starts, and we coordinate with your engineer of record.' },
+      { q: 'Can you work with my builder or GC?', a: 'Yes. We regularly join pool builders, architects and general contractors as the structural acrylic specialist on the project.' },
+      { q: 'How long does a project take?', a: '[Typical lead time to confirm with SAS] — it depends on panel size, thickness and site access. We give you a schedule with the quote.' },
+      { q: 'Can existing acrylic be refurbished?', a: 'Often, yes. We inspect the panel, then restore clarity and seal joints in place wherever the structure allows.' },
+      { q: 'Do you install outside Texas?', a: '[Confirm service area] — SAS supports projects across the United States.' },
+      { q: 'What warranty do you offer?', a: '[Warranty terms to confirm with SAS].' }
+    ];
+    const open = this.state.faq;
+    const items = faqs.map((f, i) => ({ ...f, open: i === open, expanded: i === open ? 'true' : 'false', sign: i === open ? '−' : '+',
+      iconBg: i === open ? '#e8eaf0' : '#ffffff', iconFg: i === open ? '#697780' : '#102a43',
+      toggle: () => this.setState({ faq: this.state.faq === i ? -1 : i }) }));
+    const reelBase = [I.c870, I.c400, I.c408, I.c869, I.c440, I.c385];
+    const fsData = [
+      { title: 'Channel prepared', desc: 'Load calculations and drawings done, the concrete channel is prepped to receive the panel.', img: I.c385, alt: 'Concrete channel prepared for the acrylic panel' },
+      { title: 'Panel craned in', desc: 'The US-fabricated acrylic panel is lifted over the house and lowered into position.', img: I.c870, alt: 'Crane lifting the acrylic panel over the job site' },
+      { title: 'Set & levelled', desc: 'Our crew rigs, sets and levels the panel alongside the pool builder.', img: I.c400, alt: 'SAS crew setting the panel beside the pool' },
+      { title: 'Sealed & finished', desc: 'Waterproofed, sealed and ready for water — one team, start to finish.', img: I.c408, alt: 'Finished acrylic panel set level beside the pool' }
+    ];
+    const fsi = this.state.fstage;
+    const fstages = fsData.map((b, k) => {
+      const on = k === fsi;
+      return { ...b, n: k + 1, on: on ? 'true' : 'false', bg: on ? '#ffffff' : '#6977801a', fg: on ? '#102a43' : '#ffffff', ring: on ? '#ffffff' : '#6977804d',
+        numFg: on ? '#5a6270' : '#aab2bd', op: on ? '1' : '0.75', grow: on ? '5' : '1', fh: on ? '420px' : '104px', capOp: on ? '1' : '0', labelOp: on ? '0' : '1', shade: on ? 'linear-gradient(0deg, #102a43f0 0%, #102a4366 45%, #102a4300 75%)' : '#102a43b3', numBg: on ? '#ffffff' : '#ffffff26', numCol: on ? '#102a43' : '#ffffff', pick: () => { if (this.state.fstage !== k) this.setState({ fstage: k }); } };
+    });
+
+    const fdiffs = [
+      { t: 'US-Fabricated', d: 'Built in Houston, Texas. No overseas lead times.', icon: 'M4 21V4M4 4h12l-2 4 2 4H4' },
+      { t: 'Engineering-First', d: 'Load calculations and drawings before fabrication starts.', icon: 'M4 20L20 4M14 4h6v6M7 13l4 4' },
+      { t: 'Full-Scope Ownership', d: 'One team from engineering through post-install.', icon: 'M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z' },
+      { t: 'Founder-Led', d: 'Bart Baker personally oversees every engagement.', icon: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0' }
+    ].map((d, k) => {
+      const hi = k === 3;
+      return { ...d, bg: hi ? '#102a43' : '#ffffff', fg: hi ? '#ffffff' : '#102a43', ring: hi ? '#102a43' : '#e6e9ed', muted: hi ? '#c5ccd5' : '#5a6270', iconBg: '#697780', iconFg: '#ffffff' };
+    });
+
+    const stats = [
+      { h: '30+ Years', sub: 'Structural acrylic experience', icon: 'M12 7v5l3 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z' },
+      { h: 'US-Fabricated', sub: 'Houston, Texas. No overseas lead times.', icon: 'M4 21V4M4 4h12l-2 4 2 4H4' },
+      { h: 'Full Scope, One Team', sub: 'Engineering to installation', icon: 'M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM17 11a3 3 0 1 0 0-6M3 21v-1a6 6 0 0 1 12 0v1M17 14a5 5 0 0 1 4 5v2' },
+      { h: 'Founder-Led', sub: 'Bart Baker oversees every project', icon: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0' }
+    ].map((x, k) => ({ ...x, divider: k === 0 ? 'none' : 'inset 1px 0 0 #dfe3e8' }));
+
+    const jump = (k) => () => { try { const el = document.getElementById(this.SECS[k][0]); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); this.setState({ sec: k }); } catch (e) {} };
+    const sc = this.state.sec;
+    const secs = this.SECS.map(([id, label], k) => ({ label, n: k + 1, cur: k === sc ? 'true' : 'false', size: k === sc ? '12px' : '8px', dot: k === sc ? '#697780' : '#b7bec9', go: jump(k) }));
+    const navv = { secs, hasNext: sc < this.SECS.length - 1, nextLabel: this.SECS[Math.min(sc + 1, this.SECS.length - 1)][1], goNext: jump(Math.min(sc + 1, this.SECS.length - 1)) };
+    return { ...navv, menuOpen: this.state.menu ? 'true' : 'false', showMenu: this.state.menu, toggleMenu: () => this.setState({ menu: !this.state.menu }), stats, fdiffs, fstages, fs: { ...fsData[fsi], n: fsi + 1 }, fsProgress: ((fsi + 1) * 25) + '%', reel: reelBase.concat(reelBase), steps, cur, caps, solutions, industries, faqCols: [{ items: items.slice(0, 4) }, { items: items.slice(4) }] };
+  }
+}
+</script>
+</body>
+</html>
